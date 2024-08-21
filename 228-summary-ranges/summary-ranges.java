@@ -10,19 +10,17 @@ class Solution {
         } 
         
         int start = nums[0];
-        int end = nums[0];
         
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] - nums[i-1] == 1) {
-                end = nums[i];
                 
                 if (i + 1 == nums.length) {
-                    resultList.add(start + "->" + end);
+                    resultList.add(start + "->" + nums[i]);
                 }
             } else {
                 String result = "";
-                if (end > start) {
-                    result = start + "->" + end;
+                if (nums[i-1] > start) {
+                    result = start + "->" + nums[i-1];
                 } else {
                     result = String.valueOf(start);
                 }
