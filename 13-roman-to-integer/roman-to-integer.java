@@ -1,26 +1,19 @@
 class Solution {
     public int romanToInt(String s) {
-        Map<Character, Integer> romanToNumberMap = new HashMap<>();
-        romanToNumberMap.put('I', 1);
-        romanToNumberMap.put('V', 5);
-        romanToNumberMap.put('X', 10);
-        romanToNumberMap.put('L', 50);
-        romanToNumberMap.put('C', 100);
-        romanToNumberMap.put('D', 500);
-        romanToNumberMap.put('M', 1000);
-        
-        int result = 0;
-        
-        for (int i = s.length() - 1; i > -1; i--) {
-            int number = romanToNumberMap.get(s.charAt(i));
-            
-            if (4 * number < result) {
-                result = result - number;
-            } else {
-                result += number;
+       int ans = 0, num = 0;
+        for (int i = s.length()-1; i >= 0; i--) {
+            switch(s.charAt(i)) {
+                case 'I': num = 1; break;
+                case 'V': num = 5; break;
+                case 'X': num = 10; break;
+                case 'L': num = 50; break;
+                case 'C': num = 100; break;
+                case 'D': num = 500; break;
+                case 'M': num = 1000; break;
             }
+            if (4 * num < ans) ans -= num;
+            else ans += num;
         }
-        
-        return result;
+        return ans;
     }
 }
