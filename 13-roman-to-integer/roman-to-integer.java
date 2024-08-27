@@ -10,17 +10,15 @@ class Solution {
         romanToNumberMap.put('M', 1000);
         
         int result = 0;
-        int previous = 0;
+        
         for (int i = s.length() - 1; i > -1; i--) {
             int number = romanToNumberMap.get(s.charAt(i));
             
-            if (number < previous) {
+            if (4 * number < result) {
                 result = result - number;
             } else {
                 result += number;
             }
-            
-            previous = number;
         }
         
         return result;
