@@ -1,18 +1,21 @@
 class Solution {
     public List<String> fizzBuzz(int n) {
-        List<String> results = new ArrayList<>(n);  // 초기 용량 지정
+       List<String> ans = new ArrayList<>();
 
-        for (int i = 1; i <= n; i++) {
-            StringBuilder sb = new StringBuilder();
-
-            if (i % 3 == 0) sb.append("Fizz");
-            if (i % 5 == 0) sb.append("Buzz");
-
-            if (sb.length() == 0) sb.append(i);
-
-            results.add(sb.toString());
+        for(int i=1; i<=n; i++) {
+            if(i%3 ==0 && i%5==0) {
+                ans.add("FizzBuzz");
+            }
+            else if(i%3==0) {
+                ans.add("Fizz");
+            }
+            else if(i%5==0) {
+                ans.add("Buzz");
+            }
+            else {
+                ans.add(Integer.toString(i));
+            }
         }
-
-        return results;
+        return ans;
     }
 }
